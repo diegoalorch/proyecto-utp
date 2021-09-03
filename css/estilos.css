@@ -1,22 +1,93 @@
-body {
-    margin: 50px;
-    padding: 50px;
-}
-
 #contenedor {
-    width: 1490px;
-    height: 680px;
+    padding: 15px;
+    max-width: 80vw;
+    width: max-content;
+    height: 585px;
     background-color: rgb(0, 0, 0);
     border-radius: 20px;
 }
 
 #contenedorjuego {
-    width: 1420px;
-    height: 615px;
-    margin-left: 35px;
-    margin-top: 35px;
+    width: 70vw;
+    height: 550px;
     float: right;
     float: left;
     background-color: rgb(144, 243, 243);
     border-radius: 20px;
+}
+
+.main {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-buttons {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    padding: 0 20px 0 20px;
+    gap: 2px;
+    height: 300px;
+}
+
+.transformed {
+    display: flex;
+}
+
+.icon {
+    position: relative;
+    right: -10px;
+    top: 10px;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+    border-radius: 100%;
+    background-color: #dc3545;
+    border: bisque solid 5px;
+}
+
+.icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.transformed:hover {
+    transform: rotate(2deg);
+}
+
+.grid-buttons button {
+    width: 100%;
+    font-size: x-large;
+    transition-duration: 0.2s;
+    transition-property: transform;
+}
+
+.button1 {
+    grid-column: 2 / 4;
+    grid-row: 1/2;
+}
+
+.button2 {
+    grid-column: 3 / 5;
+    grid-row: 3/4;
+}
+
+.button3 {
+    grid-column: 4 / 6;
+    grid-row: 5/6;
+}
+
+.image-contnt img {
+    height: 300px;
+}
+
+.image-contnt {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    grid-column: 6 / 9;
+    grid-row: 1/7;
 }
