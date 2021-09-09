@@ -6,7 +6,7 @@ function cambiar(opcion) {
     switch (opcion) {
         case 1:
             document.getElementById('Menujuego').style.display = 'none';
-            document.getElementById('nivel1-01').style.display = 'block';
+            document.getElementById('nombrejugador').style.display = 'block';
             nextVista();
             console.log("Funciono");
             break;
@@ -16,8 +16,9 @@ function cambiar(opcion) {
 }
 
 function ocultar() {
-    document.getElementById("nivel1-01").style.display = 'block';
+    document.getElementById("nombrejugador").style.display = 'block';
     document.getElementById("Menujuego").style.display = 'none';
+    document.getElementById("selectnivel").style.display = 'none';
 }
 
 function nextVista() {
@@ -27,7 +28,7 @@ function nextVista() {
 
 function Jugar() {
     if (siguiente) {
-        document.getElementById("nivel1-01").style.display = 'block';
+        document.getElementById("nombrejugador").style.display = 'block';
         document.getElementById("Menujuego").style.display = 'none';
         siguiente = false;
         jugar = true;
