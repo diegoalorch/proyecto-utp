@@ -33,5 +33,9 @@ function Jugar() {
         siguiente = false;
         jugar = true;
     }
+}
 
+function mapa() {
+
+    window.onload = "mapa.html";
 }
