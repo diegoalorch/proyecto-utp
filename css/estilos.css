@@ -35,14 +35,23 @@
 
 .transformed {
     display: flex;
+    align-items: center;
 }
+/* .test{
+    position: absolute;
+    width: 526px;
+    height: 35px;
+    left: 50px;
+    top: 75px;
 
+    background: #E72020;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+} */
 .icon {
     position: relative;
     right: -10px;
-    top: 10px;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     z-index: 2;
     border-radius: 100%;
     background-color: #dc3545;
@@ -50,8 +59,8 @@
 }
 
 .icon i {
-    width: 20px;
-    height: 20px;
+    margin-top:-7px;
+    font-size:6.5em;
 }
 
 .transformed:hover {
@@ -66,6 +75,7 @@
 }
 
 .button1 {
+    height:4em;
     grid-column: 2 / 4;
     grid-row: 1/2;
 }
