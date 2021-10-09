@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="/css/jugando.css">
     <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -17,7 +18,61 @@
 <body>
     <div class="main">
         <div id="contenedor">
-            <div id="contenedorjuego">  
+            <div id="contenedorjuego">
+                <div id="setting">
+
+                    <a href="#openModal">
+
+                        <button id="setting1" type="button" class="btn btn-danger">
+
+                            <i  id="icon_setting" class="fa fa-cogs" aria-hidden="true"></i>
+
+                        </button>
+
+                    </a>
+
+
+
+                    <div id="openModal" class="modalDialog">
+                        <div class="d-grid gap-4">
+                            <!--X</a>-->
+                            <h2 style="text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Opciones del Juego</h2>
+
+                            <div>
+                                <a href="#close" title="Close" class="close" style="color: white;">
+                                    <button id="btn_modal" type="button" class="btn btn-warning">
+                                        <i class="fa fa-pause-circle" aria-hidden="true"></i>
+                                        Reanudar
+                                    
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <button id="btn_modal" type="button" class="btn btn-warning">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    Reiniciar
+                                </button>
+                            </div>
+
+                            <div>
+                                <button id="btn_modal" type="button" class="btn btn-warning">
+                                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                                    Niveles
+                                </button>
+                            </div>
+
+                            <div>
+                                <button id="btn_modal" type="button" class="btn btn-warning">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                    Menú
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="header">
                     <div class="player1">
@@ -32,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="body" >                  
+                <div class="body">
                     <div class="box1">
                         <h2>Pregunta</h2>
                         <span>Lorem ipsum dolor sit amet, cum sapientem honestatis ea, verear labores feugait sea in, cu justo suscipiantur mel. Mel facilis sensibus petentium in, ne ignota mollis suavit</span>
@@ -57,10 +112,10 @@
                             </div>
                         </div>
                     </div>
-                        
+
                 </div>
 
-            </div>               
+            </div>
         </div>
     </div>
     <script src="/js/funciones.js "></script>
