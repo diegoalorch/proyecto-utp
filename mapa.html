@@ -6,19 +6,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="css/mapa.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
-<body background="img/mapa.jpg" style="max-width: 1500px;">
+<body style="max-width: 1500px;">
+    <div class="main" style="width: 1349px !important;height: 585px !important;">
+        <div id="" style="width: 1092.800px !important;">
+            <div id="contenedorjuego" style="width: 1092.800px !important;">
+                <div id="Menujuego">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
+                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                    <div class="">
+                                        <div class="prueba" style="background-color: aqua;">
+                                            <a href="/jugando.html"><i class="fa fa-unlock-alt icono" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="prueba2" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="prueba3" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="prueba4" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="prueba5" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="prueba6" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="prueba7" style="background-color: aqua;">
+                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
+                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini dsa</h1>
+                                    <div class="">
+                                        <div class="prueba" style="background-color: aqua;">
 
-    <div class="prueba" style="background-color: aqua;">
+                                        </div>
+                                        <div id="personaje">
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
+                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini asd</h1>
+                                    <div class="">
+                                        <div class="prueba" style="background-color: aqua;">
+
+                                        </div>
+                                        <div id="personaje">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="prev()" style="padding-top:30px ; height: 30px;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                        <button onclick="next()" style="padding-top:30px ; height: 30px;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="personaje">
-
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+    <script src="/js/data.js"></script>
+    <script>
+        getPreguntas()
+    </script>
 </body>
 
 </html>
