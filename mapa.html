@@ -23,41 +23,15 @@
                             <div class="carousel-item active">
                                 <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
                                     <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
-                                    <div class="">
-                                        <div class="prueba" style="background-color: aqua;">
-                                            <a href="/jugando.html"><i class="fa fa-unlock-alt icono" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="prueba2" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="prueba3" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="prueba4" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="prueba5" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="prueba6" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="prueba7" style="background-color: aqua;">
-                                            <i class="fa fa-lock icono" aria-hidden="true"></i>
-                                        </div>
+                                    <div id="niveles-1">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
                                     <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini dsa</h1>
-                                    <div class="">
-                                        <div class="prueba" style="background-color: aqua;">
-
-                                        </div>
-                                        <div id="personaje">
-
-                                        </div>
+                                    <div id="niveles-2">
                                     </div>
                                 </div>
                             </div>
@@ -88,11 +62,93 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Complete 3 preguntas correctas para desbloquear este nivel
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
     <script src="/js/data.js"></script>
     <script>
-        getPreguntas()
+        const nivel_2 = document.querySelector("#niveles-1");
+        const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+        const puntos = localStorage.getItem('puntuacion');
+
+        function listar_pregunta(nivel, preguntas) {
+
+            for (let index = 0; index < (preguntas).length; index++) {
+                if (preguntas[index].nivel == nivel) {
+                    for (let preg = 0; preg < preguntas[index].preguntas.length; preg++) {
+                        const element = preguntas[index].preguntas[preg];
+                        const div = document.createElement('div');
+                        const i = document.createElement('i');
+
+                        if (preguntas[index].preguntas[preg].unlook) {
+                            i.className = "fa fa-unlock icono"
+                            div.style.cursor = "pointer";
+                            i.setAttribute("onClick", "questionByNumber(" + (preg + 1) + ")")
+                        } else {
+                            i.className = "fa fa-lock icono"
+                            div.style.cursor = "not-allowed";
+
+                        }
+                        i.ariaHidden = "true"
+                        div.className = "prueba" + (preg + 1)
+                        div.style.background = ""
+
+                        div.appendChild(i)
+                        nivel_2.appendChild(div)
+                    }
+                }
+            }
+        }
+
+        function questionByNumber(numero) {
+            localStorage.setItem('question', numero)
+            location.href = "/jugando.html";
+        }
+
+        function clear() {
+            nivel_2.removeChild()
+        }
+        var nivel = 1;
+        const preguntas = getPreguntas();
+        listar_pregunta(1, preguntas)
+
+        function validar() {
+            if (puntos < 3) {
+                myModal.show()
+                setInterval(console.log("asd"), 2000);
+            }
+
+        }
+
+        function next() {
+            validar()
+            clear()
+            nivel++
+            if (nivel > 3) {
+                nivel = 1
+            }
+
+            listar_pregunta(nivel, preguntas)
+            console.log(nivel)
+
+        }
+
+        function prev() {
+            clear()
+            nivel--
+            if (nivel < 1) {
+                nivel = 3
+            }
+            listar_pregunta(nivel, preguntas)
+            console.log(nivel)
+        }
     </script>
 </body>
 

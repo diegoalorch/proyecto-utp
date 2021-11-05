@@ -19,20 +19,22 @@
     <div class="main">
         <div id="contenedor">
             <div id="contenedorjuego">
+                <div class="box2">
+                    <div class="w3-progress-container" style="height: 5px;">
+                        <div id="myBar" class="w3-progressbar w3-green" style="width:100%; height: 5px;"></div>
+                    </div>
+                </div>
+                <div class="desbloqueo">
+                    <div class="w3-progress-container" id="initialValorProgressBar" style="height: 26px;width:150px;padding: 3px; background-color: gray;border-radius: 20px;text-align: center;">
+                        <div id="puntiacionBar" class="w3-progressbar w3-green" style="width:0%; height: 20px; text-align: center;border-radius: 20px;"></div>
+                    </div>
+                </div>
                 <div id="setting">
-
                     <a href="#openModal">
-
                         <button id="setting1" type="button" class="btn btn-danger">
-
                             <i  id="icon_setting" class="fa fa-cogs" aria-hidden="true"></i>
-
                         </button>
-
                     </a>
-
-
-
                     <div id="openModal" class="modalDialog">
                         <div class="d-grid gap-4">
                             <!--X</a>-->
@@ -56,10 +58,12 @@
                             </div>
 
                             <div>
-                                <button id="btn_modal" type="button" class="btn btn-warning">
+                                <a href="./mapa.html" title="Close" class="close" style="color: white;">
+                                    <button id="btn_modal" type="button" class="btn btn-warning">
                                     <i class="fa fa-level-up" aria-hidden="true"></i>
-                                    Niveles
+                                    Volver al Mapa
                                 </button>
+                                </a>
                             </div>
 
                             <div>
@@ -71,55 +75,150 @@
 
                         </div>
                     </div>
-
                 </div>
 
                 <div class="header">
                     <div class="player1">
                         <h3>
-                            Player1
+                            Jugador:
                         </h3>
-                    </div>
-                    <div class="player2">
                         <h3>
-                            Player2
+                            Player1
                         </h3>
                     </div>
                 </div>
 
                 <div class="body">
-                    <div class="box1">
-                        <h2>Pregunta</h2>
-                        <span>Lorem ipsum dolor sit amet, cum sapientem honestatis ea, verear labores feugait sea in, cu justo suscipiantur mel. Mel facilis sensibus petentium in, ne ignota mollis suavit</span>
+                    <div class="box1 shadow p-3 m-3" id="pregunta">
+                        <h2>Pregunta:</h2>
                     </div>
-                    <div class="box2"></div>
                     <div class="box3">
                         <div class="asnwer">
-                            <div class=""></div>
-                            <div class=""></div>
-                            <div class=""></div>
-                            <div class=""></div>
+                            <div id="respuesta" class="flex" style="flex-wrap: wrap;">
+
+                            </div>
                         </div>
-                        <div class="option">
-                            Comodines
-                            <div class="option1">
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div class="option2">
-                                <div></div>
-                                <div></div>
-                            </div>
+                        <div class="personaje">
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
     <script src="/js/funciones.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+    <script src="/js/data.js"></script>
+    <script>
+        const pregunta_inicial = localStorage.getItem('question');
+        const puntiacion = localStorage.getItem('puntuacion')
+        console.log(puntiacion)
+        const pregunta = document.querySelector('#pregunta');
+        const respuestaDiv = document.querySelector('#respuesta');
+        const initialValorProgressBar = document.querySelector('#initialValorProgressBar');
+        const puntiacionBar = document.querySelector('#puntiacionBar')
+        const question = getPregunta(pregunta_inicial);
+        const span = document.createElement('span')
+        span.textContent = question.pregunta
+        puntiacionBar.style.width = (Number(puntiacion) / 3) * 100 + '%'
+        if (Number(puntiacion) > 0) {
+            puntiacionBar.textContent = puntiacion + " / 3"
+        }
+
+        pregunta.appendChild(span)
+        console.log(pregunta_inicial)
+        localStorage.setItem('question', Number(pregunta_inicial) + 1)
+        for (let i = 0; i < question.respuesta.length; i++) {
+            const respuesta = question.respuesta[i];
+            const div = document.createElement('div')
+            div.className = "respuesta shadow-sm"
+            div.textContent = respuesta.respuesta
+            div.setAttribute('data-correcto', respuesta.correct + '')
+            div.setAttribute('data-posicion', i + '')
+            div.setAttribute('onClick', 'validarRespuesta(' + respuesta.correct + ',' + i + ')')
+            respuestaDiv.appendChild(div)
+        }
+
+        function desbloquearPreguntas() {
+            const niveles = JSON.parse(localStorage.getItem('preguntas'))
+            console.log(niveles)
+            for (let i = 0; i < niveles.length; i++) {
+                const nivel = niveles[i];
+                for (let j = 0; j < nivel.preguntas.length; j++) {
+                    const pregunta = nivel.preguntas[j];
+                    if (pregunta.nro == pregunta_inicial) {
+                        pregunta.unlook = true
+                    }
+                }
+            }
+            localStorage.setItem('preguntas', JSON.stringify(niveles))
+        }
+
+        function validarRespuesta(correcto, posicion) {
+            const respuestas = document.getElementsByClassName('respuesta')
+            desbloquearPreguntas()
+            for (let i = 0; i < respuestas.length; i++) {
+                const resp = respuestas[i];
+                console.log(resp);
+                if (resp.dataset.posicion == posicion + "" || resp.dataset.correcto == "true    ") {
+                    if (resp.dataset.correcto != "false") {
+                        resp.className = "respuesta shadow-sm correct"
+                    } else {
+                        resp.className = "respuesta shadow-sm error"
+                    }
+                    console.log(resp);
+                } else {
+                    if (resp.dataset.correcto != "false") {
+                        resp.className = "respuesta shadow-sm correct"
+                    } else {
+                        resp.className = "respuesta shadow-sm opaco"
+                    }
+
+                }
+
+            }
+            if (correcto) {
+                //alert('marcaste la correcta')
+                meta()
+                setTimeout(() => {
+                    location.reload()
+                }, 5000)
+            } else {
+                //alert('marcaste la incorrecta')
+                setTimeout(() => {
+                    location.reload()
+                }, 5000)
+            }
+        }
+
+        function move() {
+            var elem = document.getElementById("myBar");
+            var width = 99;
+            var id = setInterval(frame, 10);
+
+            function frame() {
+                if (width <= 0) {
+                    clearInterval(id);
+                    alert("se acabo eltiempo")
+                } else {
+                    width = width - (100 / 2000);
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+
+        function meta() {
+            if (Number(puntiacion) + 1 <= 3) {
+                localStorage.setItem('puntuacion', (Number(puntiacion) + 1) + '')
+                puntiacionBar.style.width = ((Number(puntiacion) + 1) / 3) * 100 + '%'
+                puntiacionBar.textContent = (Number(puntiacion) + 1) + " / 3"
+                console.log(puntiacion)
+                if (Number(puntiacion) + 1 == 3) {
+                    alert('Felicidades, Desbloqueaste el siguiente nivel')
+                }
+            }
+        }
+        move();
+    </script>
 </body>
 
 </html>
