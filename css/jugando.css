@@ -1,28 +1,18 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 0.5em;
     padding: 8px;
     gap: 0.5em;
 }
 
 .header div {
-    height: 35px;
-    background: #E72020;
-}
-
-.player1 {
-    text-align: end;
-    padding-right: 1em;
-    ;
-    flex: 6;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 17% 100%);
-}
-
-.player2 {
-    padding-left: 1em;
-    flex: 6;
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px 8px 8px;
+    width: 50%;
+    background: #2a6ccf;
 }
 
 .body {
@@ -31,71 +21,117 @@
     width: 100%;
     height: 70%;
     justify-content: center;
-    background-image: url(../img/body.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.box1{
+.box1 {
     display: flex;
-        /* margin-top:1em; */
+    /* margin-top:1em; */
     margin: 0.3em;
-    padding: 0 10px 0 10px; 
-    height:12vh;
-    background:#C4C4C4 ;
+    padding: 0 10px 0 10px;
+    border-radius: 20px;
+    height: 12vh;
+    background: #ddd9d9;
     align-items: center;
     gap: 1em;
 }
 
-.box2{
-    display: flex;
+.box2 {
     background: #B67474;
-    height:1vh;
-    margin: 0.3em ;
+    margin: 0.5px 0.6em;
     border: 0.1px solid darkviolet;
 }
-.box2::before{
-    content: " ";
-    background: #FF0000;
-    width: 70%;
+
+.desbloqueo {
+    margin: 10px 0.6em;
 }
 
-.box3{
+.w3-green,
+.w3-hover-green:hover {
+    color: #fff!important;
+    height: 10px;
+    background-color: #4CAF50!important;
+}
+
+.opaco {
+    opacity: 0;
+}
+
+.w3-progressbar {
+    background-color: #757575;
+    height: 100%;
+    line-height: inherit;
+}
+
+.box3 {
     display: flex;
     height: 200px;
     margin: 0.3em;
     text-align: center;
 }
 
-.asnwer{
-    background: pink;
-    flex: 9;
-    display:flex;
+.asnwer {
+    flex: 7;
+    display: flex;
     flex-direction: column;
-    gap: 0.9em;
     padding: 20px 10px 20px 10px;
 }
 
-.asnwer div{
-    height:30px;
-    background:#C4C4C4 ;
-    cursor: pointer;
-}
-.option{
-    background:purple;
-    flex: 4;
-    color:#C4C4C4;
+.correct {
+    background-color: #38A169 !important;
+    color: white !important;
+    border: #38A169 1px solid;
 }
 
-.option1,.option2{
-    display:flex;
+.error {
+    background-color: #E53E3E !important;
+    color: white !important;
+    border: #E53E3E 1px solid;
+}
+
+.respuesta {
+    background-color: #C4C4C4;
+    height: 10vh;
+    width: 46%;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    align-items: center;
+    transition: opacity 1500ms ease;
+    transition: background-color 1500ms ease;
+    transition: color 1500ms ease;
+}
+
+.personaje {
+    flex: 3;
+}
+
+.flex {
+    display: flex;
+    margin: 8px 0 8px 0;
+    justify-content: space-around;
+}
+
+.option {
+    background: purple;
+    flex: 4;
+    color: #C4C4C4;
+}
+
+.option1,
+.option2 {
+    display: flex;
     margin-top: 20px;
     gap: 1em;
-    justify-content:center;
+    justify-content: center;
 }
-.option1 div,.option2 div{
-    height:60px;
-    width:60px;
-    background:#C4C4C4 ;
+
+.option1 div,
+.option2 div {
+    height: 60px;
+    width: 60px;
+    background: #C4C4C4;
     cursor: pointer;
 }

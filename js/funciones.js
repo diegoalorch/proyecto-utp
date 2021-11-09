@@ -34,8 +34,3 @@ function Jugar() {
         jugar = true;
     }
 }
-
-function mapa() {
-
-    window.onload = "mapa.html";
-}

@@ -1,0 +1,94 @@
+.prueba1 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 65px;
+    left: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.prueba2 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -145px;
+    left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba3 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -130px;
+    left: 515px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba4 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 55px;
+    left: 355px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba5 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -65px;
+    left: 705px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba6 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -340px;
+    left: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba7 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -244px;
+    left: 973px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba1:hover,
+.prueba2:hover,
+.prueba3:hover,
+.prueba4:hover,
+.prueba5:hover,
+.prueba6:hover,
+.prueba7:hover {
+    font-size: 60px;
+}
