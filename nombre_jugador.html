@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/nombre_jugador.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="main">
+        <div id="contenedor">
+            <div id="contenedorjuego">
+                <div class="container_register_name">                    
+                    <div class="container_name">
+                        <div class="icon_name"></div>
+                        <input type="text" name="" id="insertname" placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="container_check">
+                        <label>
+                            <input type="checkbox" name="miCheck" id="MF" value="1" onclick="Masculino_Femenino()">
+                            <span></span>
+                            <i class="indicator"></i>
+                        </label>
+                        <span id="text_fm"></span>
+                    </div>
+                    <button onclick="window.location.href='./jugando.html'">Siguiente</button>
+                </div>             
+            </div>
+        </div>
+    </div>
+    <script src="/js/funciones.js "></script>
+    <script src="/js/nombre_jugador.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+</body>
+
+</html>
