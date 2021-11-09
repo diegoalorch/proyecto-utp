@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container_register_name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-image: url(/img/cara\ juego.png);
+    gap:5px;
+}
+.container_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+.container_name input{
+    position:absolute;
+    text-align:center;
+    background: #dc3545;
+    border: 1px solid #dc3545;
+    outline: none;
+    width:300px;
+    height:40px;    
+    color: white;
+    
+}
+.icon_name {
+    position: relative;
+    top: -20px;
+    left: -180px;
+    width: 100px;
+    height: 50px;
+    z-index: 2;
+    background-color: #79443B;
+    border: bisque solid 5px;
+    font-size:25px;
+}
+.container_name input::placeholder { color: white;font-size:20px; }
+
+
+.container_register_name button{
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    outline: none;
+    color: white;
+    font-size:25px;
+    cursor: pointer;
+    width:300px;
+    height:40px;
+}
+
+
+/* Masculino or Femenino */
+label{
+    position: relative;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+label input{
+    appearance:none;
+    display:none;
+}
+
+label span{
+    position:relative;
+    display: block;
+    width:80px;
+    height: 40px;
+    background: #222;
+    border-radius: 40px;
+    box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.2),
+                inset 0 2px 2px rgba(0, 0, 0, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.2)
+}
+
+label .indicator{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255,255,255,0.1);
+    transition: 0.5s;
+    transform:scale(0.9);
+}
+
+label input:checked ~ .indicator{
+    left: 40px;
+}
+
+label .indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:5px;
+    height: 5px;
+    background: #dc3545;
+    border-radius:50%;
+    transition: 0.5s;
+    box-shadow: 0 0 2px #dc3545,
+    0 0 5px #dc3545,
+    0 0 10px #dc3545,
+    0 0 15px #dc3545,
+    0 0 20px #dc3545,
+    0 0 25px #dc3545,
+    0 0 30px #dc3545,
+    0 0 40px #dc3545;
+}
+
+label input:checked ~ .indicator::before{
+    background: #0f0;
+    box-shadow: 0 0 2px #0f0,
+                0 0 5px #0f0,
+                0 0 10px #0f0,
+                0 0 15px #0f0,
+                0 0 20px #0f0,
+                0 0 25px #0f0,
+                0 0 30px #0f0,
+                0 0 40px #0f0;
+}
