@@ -6,40 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos</title>
-
-    <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/nombre_jugador.css">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">    
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
-    <div class="main">
-        <div id="contenedor">
-            <div id="contenedorjuego">
-                <div class="container_register_name">                    
-                    <div class="container_name">
-                        <div class="icon_name"></div>
-                        <input type="text" name="" id="insertname" placeholder="Ingresa tu nombre">
-                    </div>
-                    <div class="container_check">
-                        <label>
-                            <input type="checkbox" name="miCheck" id="MF" value="1" onclick="Masculino_Femenino()">
-                            <span></span>
-                            <i class="indicator"></i>
-                        </label>
-                        <span id="text_fm"></span>
-                    </div>
-                    <button onclick="inicializar_preguntas();window.location.href='./mapa.html'">Siguiente</button>
-                </div>             
+    <div class="container">
+        <div class="container_inputs">
+            <input type="text" class="form-control" placeholder="Ingrese nombre" id="input_text">
+            <input type="submit" class="btn btn-outline-danger" value="NEXT" onclick="get_send_data();">
+        </div>
+        <div class="card" style="height:65vh">
+            <span class="card-title activator grey-text text-darken-4">Presiona el personaje</span>
+            <div class="card-image">
+                <div class="carousel" style="display: flex">
+                    <a style="background: grey;height:260px;justify-content:center" class="carousel-item" href="#one!" onclick="selectCharacter(1)"><img style="height:240px;width:200px;justify-content: center;" src="img/character/character_1.png"></a>
+                    <a style="background: grey;height:260px;justify-content:center" class="carousel-item" href="#two!" onclick="selectCharacter(2)"><img src="img/character/character_2.png"></a>
+                    <a style="background: grey;height:260px;justify-content:center" class="carousel-item" href="#one!" onclick="selectCharacter(1)"><img style="height:240px;width:200px;justify-content: center;" src="img/character/character_1.png"></a>
+                    <a style="background: grey;height:260px;justify-content:center" class="carousel-item" href="#two!" onclick="selectCharacter(2)"><img src="img/character/character_2.png"></a>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/js/funciones.js "></script>
-    <script src="/js/data.js "></script>
-    <script src="/js/nombre_jugador.js "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+
+    
+    <!-- window.location.href='./mapa.html' -->
+
+    <!-- <script src="/js/nombre_jugador.js "></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/nombre_jugador.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            console.log(elems);
+            var instances = M.Carousel.init(elems);
+        });
+    </script>
 </body>
 
 </html>
