@@ -25,6 +25,7 @@
 
                                     <div class="headermap">
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 1</h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
                                             <div class="puntuacion">20</div>
@@ -87,8 +88,13 @@
         const nivelesClass = document.getElementsByClassName("nivelClass")
         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
         const puntos = localStorage.getItem('puntuacion');
+        const charter = document.querySelector("#charter")
+        const chart = localStorage.getItem('char')
+        console.log(chart)
 
         function listar_pregunta(nivel, preguntas) {
+            const personaje = chart.split(',')
+            charter.innerHTML = personaje[0]
             for (let index = 0; index < (preguntas).length; index++) {
                 if (preguntas[index].nivel == nivel) {
                     if (!preguntas[index].look) {
