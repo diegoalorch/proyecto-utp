@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mapa</title>
     <link rel="stylesheet" href="css/mapa.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
@@ -21,30 +21,37 @@
                     <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
-                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                <div class="d-grid gap-2 nivelClass" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
+
+                                    <div class="headermap">
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 1</h2>
+                                        <div class="score">
+                                            <div class="score_title">Puntuación</div>
+                                            <div class="puntuacion">20</div>
+                                        </div>
+                                    </div>
                                     <div id="niveles-1">
 
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
-                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini dsa</h1>
+                                <div class="d-grid gap-2 nivelClass " style="background-size: contain; background-repeat: no-repeat; background-image: url(./img/mapa/intermedio.jpg); height: 550px;">
+                                    <div class="headermap">
+                                        <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                    </div>
                                     <div id="niveles-2">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <div class="d-grid gap-2" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/m_facil.svg); height: 550px;">
-                                    <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini asd</h1>
-                                    <div class="">
-                                        <div class="prueba" style="background-color: aqua;">
+                                <div class="d-grid gap-2 nivelClass" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/dificil.jpg); height: 550px;">
+                                    <div class="headermap">
+                                        <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                    </div>
+                                    <div id="niveles-3">
 
-                                        </div>
-                                        <div id="personaje">
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,31 +81,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
     <script src="/js/data.js"></script>
     <script>
-        const nivel_2 = document.querySelector("#niveles-1");
+        const nivel_1 = document.querySelector("#niveles-1");
+        const nivel_2 = document.querySelector("#niveles-2");
+        const nivel_3 = document.querySelector("#niveles-3");
+        const nivelesClass = document.getElementsByClassName("nivelClass")
         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
         const puntos = localStorage.getItem('puntuacion');
 
         function listar_pregunta(nivel, preguntas) {
-
             for (let index = 0; index < (preguntas).length; index++) {
                 if (preguntas[index].nivel == nivel) {
+                    if (!preguntas[index].look) {
+                        nivelesClass[index].className += " imagenfondo"
+                    }
+                    console.log(preguntas[index], nivelesClass[index])
                     for (let preg = 0; preg < preguntas[index].preguntas.length; preg++) {
                         const element = preguntas[index].preguntas[preg];
                         const div = document.createElement('div');
                         const i = document.createElement('i');
 
-                        if (preguntas[index].preguntas[preg].unlook) {
+                        if (element.unlook) {
                             i.className = "fa fa-unlock icono"
                             div.style.cursor = "pointer";
-                            i.setAttribute("onClick", "questionByNumber(" + (preg + 1) + ")")
+                            i.setAttribute("onClick", "questionByNumber(" + (element.nro) + ")")
                         } else {
                             i.className = "fa fa-lock icono"
                             div.style.cursor = "not-allowed";
 
                         }
                         i.ariaHidden = "true"
-                        div.className = "prueba" + (preg + 1)
-                        console.log(element)
+                        div.className = "prueba" + (element.nro)
                         if (element.good) {
                             div.style.background = "green"
                         } else {
@@ -107,8 +119,25 @@
 
 
                         div.appendChild(i)
-                        nivel_2.appendChild(div)
+                        switch (nivel) {
+                            case 1:
+                                nivel_1.appendChild(div)
+                                break;
+                            case 2:
+                                console.log("entre")
+                                nivel_2.appendChild(div)
+                                break;
+                            case 3:
+                                nivel_3.appendChild(div)
+                                break;
+                            default:
+                                nivel_1.appendChild(div)
+                                break;
+                        }
+
                     }
+                } else {
+                    console.log(preguntas[index].preguntas)
                 }
             }
         }
@@ -119,7 +148,18 @@
         }
 
         function clear() {
-            nivel_2.removeChild()
+            const removerdiv1 = nivel_1.querySelectorAll('div');
+            removerdiv1.forEach((div, i) => {
+                nivel_1.removeChild(div)
+            });
+            const removerdiv2 = nivel_2.querySelectorAll('div');
+            removerdiv2.forEach((div, i) => {
+                nivel_2.removeChild(div)
+            });
+            const removerdiv3 = nivel_3.querySelectorAll('div');
+            removerdiv3.forEach((div, i) => {
+                nivel_3.removeChild(div)
+            });
         }
         var nivel = 1;
         const preguntas = getPreguntas();

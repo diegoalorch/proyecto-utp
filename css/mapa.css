@@ -83,12 +83,246 @@
     font-size: 40px;
 }
 
+.prueba8 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 130px;
+    left: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba9 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 170px;
+    left: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba10 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -45px;
+    left: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba11 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 30px;
+    left: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba12 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -130px;
+    left: 710px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba13 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -30px;
+    left: 820px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba14 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -214px;
+    left: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba15 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 130px;
+    left: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba16 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 200px;
+    left: 205px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba17 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba18 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 80px;
+    left: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba19 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -115px;
+    left: 670px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba20 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 0px;
+    left: 810px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.prueba21 {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -160px;
+    left: 960px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
 .prueba1:hover,
 .prueba2:hover,
 .prueba3:hover,
 .prueba4:hover,
 .prueba5:hover,
 .prueba6:hover,
-.prueba7:hover {
+.prueba7:hover,
+.prueba8:hover,
+.prueba9:hover,
+.prueba10:hover,
+.prueba11:hover,
+.prueba12:hover,
+.prueba13:hover,
+.prueba14:hover,
+.prueba15:hover,
+.prueba16:hover,
+.prueba17:hover,
+.prueba18:hover,
+.prueba19:hover,
+.prueba20:hover,
+.prueba21:hover {
     font-size: 60px;
+}
+
+.imagenfondo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.headermap {
+    display: flex;
+    padding: 5px 200px;
+    justify-content: space-around;
+}
+
+.score {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    height: min-content;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.068);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-Left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.score_title {
+    border-radius: 10px 0 0 10px;
+    padding: 3px;
+    background-color: white;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    align-items: center;
+}
+
+.puntuacion {
+    border-radius: 0 10px 10px 0;
+    padding: 3px;
+    background-color: white;
+    border: 5px solid black;
+    align-items: center;
 }

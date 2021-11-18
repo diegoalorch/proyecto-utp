@@ -18,7 +18,7 @@
         <div id="contenedor">
             <div id="contenedorjuego">
                 <div id="Menujuego">
-                    <div class="d-grid gap-2" style="background-image: url(/img/cara\ juego.png); height: 550px;">
+                    <div class="d-grid gap-2" style="background-image: url(/img/cara\ juego.jpg);background-position: center;background-repeat: no-repeat;background-size: cover; height: 550px;">
                         <!--<h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Mini Juego</h1>-->
                         <br><br><br><br><br><br>
                         <div class="grid-buttons ">
@@ -26,33 +26,13 @@
                                 <div class="icon" onclick="window.location.href='./nombre_jugador.html'"><i class="fa fa-play-circle fa-7x"></i></div>
                                 <button class="btn btn-danger " type="button " id="Jugar " onclick="window.location.href='./nombre_jugador.html'"> Jugar</button>
                             </div>
-                            <button class="btn btn-danger button2 transformed " type="button "><i class="fa fa-level-up " aria-hidden="true "></i> Niveles</button>
+                            <button onclick="window.location.href='./niveles.html'" class="btn btn-danger button2 transformed " type="button "><i class="fa fa-level-up " aria-hidden="true"></i> Niveles</button>
                             <button class="btn btn-danger button3 transformed " type="button "><i class="fa fa-times " aria-hidden="true "></i> Salir</button>
                             <div class="image-contnt ">
                                 <img src="https://blog.foto24.com/wp-content/uploads/2019/02/6-fotografia-de-Alejandro-Rodriguez-683x1024.jpg " alt="foto ">
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div id="nombrejugador " style="display: none; ">
-                    <h1 style="text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; ">Por favor Ingrese un nombre</h1>
-                    <br>
-                    <br>
-                    <div class="form-floating " style="width: 80%; height: 70%; position:relative; top:50%; margin: 0 auto; ">
-                        <input class="form-control " type="text " placeholder="Default input " aria-label="default input example ">
-                        <label for="floatingTextarea ">Nombre del Jugador</label>
-                        <br>
-                        <button type="button " class="btn btn-danger btn-lg " style="position:relative; top:50%; left:50%; margin: -20px -50px; " onclick="mapa() ">Siguiente</button>
-                    </div>
-                </div>
-
-                <div id="selectnivel " style="display: none; ">
-                    <h1 style="text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; ">Seleccione Nivel de Dificultad</h1>
-                    <br>
-                    <button type="button " class="btn btn-danger btn-lg " style="position:relative; top:50%; left:50%; margin: -20px -50px; " onclick=" ">Fácil</button>
-                    <button type="button " class="btn btn-danger btn-lg " style="position:relative; top:50%; left:50%; margin: -20px -50px; " onclick=" ">Intermedio</button>
-                    <button type="button " class="btn btn-danger btn-lg " style="position:relative; top:50%; left:50%; margin: -20px -50px; " onclick=" ">Dificil</button>
                 </div>
             </div>
         </div>
