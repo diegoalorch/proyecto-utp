@@ -22,6 +22,7 @@ function inicializar_preguntas() {
                         { respuesta: "Falso", correct: true },
                     ],
                     unlook: true,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 2,
@@ -32,6 +33,7 @@ function inicializar_preguntas() {
                         { respuesta: "El origen y modulo del vector", correct: false },
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 3,
@@ -41,6 +43,7 @@ function inicializar_preguntas() {
                         { respuesta: "Falso", correct: true },
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 4,
@@ -52,6 +55,7 @@ function inicializar_preguntas() {
                         { respuesta: "(Giga)x(micro)", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 5,
@@ -74,6 +78,7 @@ function inicializar_preguntas() {
                         { respuesta: "Fuerza, Temperatura", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 7,
@@ -85,6 +90,7 @@ function inicializar_preguntas() {
                         { respuesta: "La intensidad luminosa es una magnitud Derivada", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }]
             }, {
@@ -99,6 +105,7 @@ function inicializar_preguntas() {
                         { respuesta: "5i-2j", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 9,
@@ -110,6 +117,7 @@ function inicializar_preguntas() {
                         { respuesta: "120", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 10,
@@ -121,6 +129,7 @@ function inicializar_preguntas() {
                         { respuesta: "15", correct: true }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 11,
@@ -132,6 +141,7 @@ function inicializar_preguntas() {
                         { respuesta: "2", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 12,
@@ -143,6 +153,7 @@ function inicializar_preguntas() {
                         { respuesta: "2", correct: true }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }, {
                     nro: 13,
@@ -154,6 +165,7 @@ function inicializar_preguntas() {
                         { respuesta: "24", correct: false }
                     ],
                     unlook: false,
+                    good: false,
                     posicion: ["12px", "30px"]
                 }]
             }]

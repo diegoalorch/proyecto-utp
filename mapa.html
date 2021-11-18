@@ -98,7 +98,13 @@
                         }
                         i.ariaHidden = "true"
                         div.className = "prueba" + (preg + 1)
-                        div.style.background = ""
+                        console.log(element)
+                        if (element.good) {
+                            div.style.background = "green"
+                        } else {
+                            div.style.background = "red"
+                        }
+
 
                         div.appendChild(i)
                         nivel_2.appendChild(div)
