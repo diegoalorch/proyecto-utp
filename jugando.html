@@ -60,13 +60,6 @@
                             </div>
 
                             <div>
-                                <button id="btn_modal" type="button" class="btn btn-warning">
-                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                    Reiniciar
-                                </button>
-                            </div>
-
-                            <div>
                                 <a href="./mapa.html" title="Close" class="close" style="color: white;">
                                     <button id="btn_modal" type="button" class="btn btn-warning">
                                     <i class="fa fa-level-up" aria-hidden="true"></i>
@@ -76,7 +69,7 @@
                             </div>
 
                             <div>
-                                <button id="btn_modal" type="button" class="btn btn-warning">
+                                <button id="btn_modal" type="button" class="btn btn-warning" onclick="window.location.href='./index.html'">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                     Menú
                                 </button>
@@ -91,24 +84,23 @@
                         <h3>
                             Jugador:
                         </h3>
-                        <h3>
+                        <h3 id="name1">
                             Player1
                         </h3>
                     </div>
                 </div>
 
                 <div class="body">
-                    <div class="box1 shadow p-3 m-3" id="pregunta">
+                    <div class="box1 shadow p-3 m-3" id="pregunta" style="">
                         <h2>Pregunta:</h2>
                     </div>
                     <div class="box3">
                         <div class="asnwer">
-                            <div id="respuesta" class="flex" style="flex-wrap: wrap;">
+                            <div id="respuesta" class="flex" style="flex-wrap: wrap; gap: 20px;">
 
                             </div>
                         </div>
-                        <div class="personaje">
-                        </div>
+                        <div id="id_character"></div>
                     </div>
                 </div>
             </div>
@@ -117,7 +109,23 @@
     <script src="/js/funciones.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
     <script src="/js/data.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        /*name and character open*/
+        let character = localStorage.getItem('char').split(',');
+        const name = document.querySelector('#name1');
+        name.innerHTML = (character[0]); 
+        const imagen1 = document.querySelector('#id_character');
+        switch (character[1]) {
+            case '1':
+                imagen1.innerHTML = ('<img src=img/character/character_1.png style="height:30vh;"/>')
+                break;
+            case '2':
+                imagen1.innerHTML = ('<img src=img/character/character_2.png style="height:30vh;"/>')
+                break;
+        }
+
+        /*close character close*/
         const pregunta_inicial = localStorage.getItem('question');
         const puntuacionInter = localStorage.getItem('puntuacionInter')
         const puntuacionDificil = localStorage.getItem('puntuacionDificil')
@@ -221,7 +229,13 @@
                                 location.reload()
                             }, 2000)
                         } else {
-                            //aqui johan
+                            Swal.fire({
+                            icon: 'warning',
+                            title: 'Insuficientes puntos',
+                            text: 'Nivel 2 bloqueado',
+                            showConfirmButton: false,
+                            timer: 3000
+                            })
                             setTimeout(() => {
                                 location.href = "/mapa.html";
                             }, 3000)
@@ -246,7 +260,13 @@
                                 location.reload()
                             }, 2000)
                         } else {
-                            //aqui johan
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Insuficientes puntos',
+                                text: 'Nivel 3 bloqueado',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
                             setTimeout(() => {
                                 location.href = "/mapa.html";
                             }, 3000)
@@ -273,9 +293,19 @@
             function frame() {
                 if (width <= 0) {
                     clearInterval(id);
-                    alert("se acabo eltiempo")
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'El tiempo',
+                        imageUrl:'https://c.tenor.com/F2DmBuHGBW8AAAAC/hombre-fin.gif',
+                        showConfirmButton: false,
+                        timer: 1500,                        
+                    })
+                    setTimeout(() => {
+                        location.reload()
+                    }, 1500)
+                    
                 } else {
-                    //width = width - (100 / 2000);
+                    width = width - (100 / 2000);
                     elem.style.width = width + '%';
                 }
             }
@@ -307,7 +337,15 @@
                                         console.log("asd")
 
                                         if (nivel.nivel == nivelActual) {
-                                            alert('Felicidades, Desbloqueaste el siguiente nivel')
+                                            Swal.fire({
+                                                title: 'Felicidades!',
+                                                text: 'Desbloqueaste el siguiente nivel.',
+                                                imageUrl: 'https://c.tenor.com/lrB55PZ6JYoAAAAC/spelling-bee-win.gif',
+                                                imageWidth: 400,
+                                                imageHeight: 200,
+                                                imageAlt: 'Custom image',
+                                            })
+                                            // alert('Felicidades, Desbloqueaste el siguiente nivel')
                                             niveles[i + 1].look = true
                                         }
                                     }
@@ -340,7 +378,14 @@
                                         console.log("asd")
 
                                         if (nivel.nivel == nivelActual) {
-                                            alert('Felicidades, Desbloqueaste el siguiente nivel')
+                                            Swal.fire({
+                                                title: 'Felicidades!',
+                                                text: 'Desbloqueaste el siguiente nivel.',
+                                                imageUrl: 'https://c.tenor.com/lrB55PZ6JYoAAAAC/spelling-bee-win.gif',
+                                                imageWidth: 400,
+                                                imageHeight: 200,
+                                                imageAlt: 'Custom image',
+                                            })
                                             niveles[i + 1].look = true
                                         }
                                     }
