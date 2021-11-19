@@ -2,11 +2,9 @@
     padding: 15px;
     max-width: 90vw;
     width: max-content;
-    height: 90vh;
+    height: 78vh;
     background-color: rgb(0, 0, 0);
     border-radius: 20px;
-    background-size: cover;
-    background-position: center center;
 }
 #contenedor1 {
     padding: 15px;
