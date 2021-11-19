@@ -165,6 +165,10 @@
                         pregunta.unlook = true
                         if (respuestaCorrect) {
                             pregunta.good = true
+                            if (pregunta.good != question.good) {
+                                const score = localStorage.getItem('score')
+                                localStorage.setItem('score', (Number(score)) + 1);
+                            }
                         }
                     }
                 }
@@ -178,8 +182,7 @@
             for (let i = 0; i < respuestas.length; i++) {
                 const resp = respuestas[i];
                 console.log(resp);
-
-                if (resp.dataset.posicion == posicion + "" || resp.dataset.correcto == "true    ") {
+                if (resp.dataset.posicion == posicion + "" || resp.dataset.correcto == "true") {
                     if (resp.dataset.correcto != "false") {
                         resp.className = "respuesta shadow-sm correct"
                     } else {

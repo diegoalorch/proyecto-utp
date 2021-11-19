@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Result Examen</title>
     <link rel="stylesheet" href="css/result_examn.css">
 </head>
+
 <body>
     <div class="container1">
         <div class="text-winner">
@@ -15,9 +17,9 @@
         </div>
         <div class="card">
             <div class="puntuation">
-            <span>Tu puntuacion es : </span>
-            <div class="container">
-                <svg width="30vh" height="30vh" viewBox="0 0 300 300">
+                <span>Tu puntuacion es : </span>
+                <div class="container">
+                    <svg width="30vh" height="30vh" viewBox="0 0 300 300">
                     <defs>
                         <linearGradient id="Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#e100ff" />
@@ -28,15 +30,16 @@
                     <circle class="load" cx="150" cy="150" r="100" transform="rotate(-90 150 150)" />
                     <text class="num" stroke-width="3" x="150" y="55%" text-anchor="middle"></text>
                 </svg>
-              </div>
-        </div>
+                </div>
+            </div>
         </div>
         <div id="id_character"></div>
     </div>
-    
+
 </body>
 
 <script>
+    const score = localStorage.getItem('score')
     let character = localStorage.getItem('char').split(',');
     console.log(character);
     const imagen1 = document.querySelector('#id_character');
@@ -49,30 +52,26 @@
             break;
     }
 
-/* contador  */
-    var nota = 18;
+    /* contador  */
+    var nota = Number(score);
     let text = document.querySelector(".num");
     let load = document.querySelector(".load");
     let numToText = 1;
-    let time =setInterval(function(){
+    let time = setInterval(function() {
         numToText += 1;
         text.textContent = numToText;
-        if(numToText === nota){
+        if (numToText === nota) {
             clearInterval(time);
-            load.style.fillOpacity = 1 ;
+            load.style.fillOpacity = 1;
             text.style.fill = "#fff";
             text.stytle.fontSize = "30px";
             text.textContent = "Nota";
             text.textLength = "105";
         }
-    },200);
-    setInterval(function(){
-        location.href='./mapa.html';
-    },10000);
-    
-
-    
-    
+    }, 200);
+    setInterval(function() {
+        location.href = './mapa.html';
+    }, 10000);
 </script>
 
 </html>

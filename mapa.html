@@ -28,7 +28,7 @@
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
-                                            <div class="puntuacionInter">20</div>
+                                            <div id="scoreGeneral" class="puntuacionInter">20</div>
                                         </div>
                                     </div>
                                     <div id="niveles-1">
@@ -86,12 +86,15 @@
         const nivel_1 = document.querySelector("#niveles-1");
         const nivel_2 = document.querySelector("#niveles-2");
         const nivel_3 = document.querySelector("#niveles-3");
+        const scoreGeneral = document.querySelector("#scoreGeneral")
+        const score = localStorage.getItem('score')
         const nivelesClass = document.getElementsByClassName("nivelClass")
         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
         const puntos = localStorage.getItem('puntuacionInter');
         const charter = document.querySelector("#charter")
         const chart = localStorage.getItem('char')
         console.log(chart)
+        scoreGeneral.innerHTML = score;
 
         function listar_pregunta(nivel, preguntas) {
             const personaje = chart.split(',')
