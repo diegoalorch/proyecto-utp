@@ -24,10 +24,11 @@
                         <div class="grid-buttons ">
                             <div class="button1 transformed ">
                                 <div class="icon" onclick="window.location.href='./nombre_jugador.html'"><i class="fa fa-play-circle fa-7x"></i></div>
-                                <button class="btn btn-danger " type="button " id="Jugar " onclick="window.location.href='./nombre_jugador.html'"> Jugar</button>
+                                <button class="btn btn-danger " type="button " id="Jugar " onclick="inicializar_preguntas();window.location.href='./nombre_jugador.html'"> Jugar</button>
                             </div>
                             <button onclick="window.location.href='./niveles.html'" class="btn btn-danger button2 transformed " type="button "><i class="fa fa-level-up " aria-hidden="true"></i> Niveles</button>
-                            <button class="btn btn-danger button3 transformed " type="button "><i class="fa fa-times " aria-hidden="true "></i> Salir</button>
+                            <button class="btn btn-danger button3 transformed " type="button " onclick="window.location.href='./game_end.html'"><i class="fa fa-times " aria-hidden="true " ></i> Salir</button>
+                            
                             <div class="image-contnt ">
                                 <img src="https://blog.foto24.com/wp-content/uploads/2019/02/6-fotografia-de-Alejandro-Rodriguez-683x1024.jpg " alt="foto ">
                             </div>
@@ -39,6 +40,7 @@
     </div>
     <script src="/js/funciones.js "></script>
     <script src="/js/data.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
 </body>
 
