@@ -24,11 +24,21 @@
                         <div id="myBar" class="w3-progressbar w3-green" style="width:100%; height: 5px;"></div>
                     </div>
                 </div>
-                <div class="desbloqueo">
-                    <div class="w3-progress-container" id="initialValorProgressBar" style="height: 26px;width:150px;padding: 3px; background-color: gray;border-radius: 20px;text-align: center;">
-                        <div id="puntiacionBar" class="w3-progressbar w3-green" style="width:0%; height: 20px; text-align: center;border-radius: 20px;"></div>
+                <div style="display: flex;">
+                    <div class="desbloqueo">
+                        <div class="w3-progress-container" id="initialValorProgressBar" style="height: 26px;width:150px;padding: 3px; background-color: gray;border-radius: 20px;text-align: center;">
+                            <div id="puntiacionBar" class="w3-progressbar w3-green" style="width:0%; height: 20px; text-align: center;border-radius: 20px;"></div>
+                        </div>
+                        <p data-bs-toggle="tooltip" data-bs-placement="bottom" title="Este contadore es para desbloquear el nivel Intermedio">Desbloq. Intermedio</p>
+                    </div>
+                    <div class="desbloqueo">
+                        <div class="w3-progress-container" id="initialValorProgressBar" style="height: 26px;width:150px;padding: 3px; background-color: gray;border-radius: 20px;text-align: center;">
+                            <div id="puntiacionBarInter" class="w3-progressbar w3-green" style="width:0%; height: 20px; text-align: center;border-radius: 20px;"></div>
+                        </div>
+                        <p data-bs-toggle="tooltip" data-bs-placement="bottom" title="Este contadore es para desbloquear el nivel Dificil">Desbloq. Dificil</p>
                     </div>
                 </div>
+
                 <div id="setting">
                     <a href="#openModal">
                         <button id="setting1" type="button" class="btn btn-danger">
@@ -45,7 +55,6 @@
                                     <button id="btn_modal" type="button" class="btn btn-warning">
                                         <i class="fa fa-pause-circle" aria-hidden="true"></i>
                                         Reanudar
-                                    
                                     </button>
                                 </a>
                             </div>
@@ -110,21 +119,27 @@
     <script src="/js/data.js"></script>
     <script>
         const pregunta_inicial = localStorage.getItem('question');
-        const puntiacion = localStorage.getItem('puntuacion')
-        console.log(puntiacion)
+        const puntuacionInter = localStorage.getItem('puntuacionInter')
+        const puntuacionDificil = localStorage.getItem('puntuacionDificil')
+        console.log(puntuacionInter)
         const pregunta = document.querySelector('#pregunta');
         const respuestaDiv = document.querySelector('#respuesta');
         const initialValorProgressBar = document.querySelector('#initialValorProgressBar');
         const puntiacionBar = document.querySelector('#puntiacionBar')
+        const puntiacionBarInt = document.querySelector('#puntiacionBarInter')
         const question = getPregunta(pregunta_inicial);
         const span = document.createElement('span')
+        const nivelActual = localStorage.getItem("nivelActual")
         var respuestaCorrect = false;
         span.textContent = question.pregunta
-        puntiacionBar.style.width = (Number(puntiacion) / 3) * 100 + '%'
-        if (Number(puntiacion) > 0) {
-            puntiacionBar.textContent = puntiacion + " / 3"
+        puntiacionBar.style.width = (Number(puntuacionInter) / 3) * 100 + '%'
+        if (Number(puntuacionInter) > 0) {
+            puntiacionBar.textContent = puntuacionInter + " / 3"
         }
-
+        puntiacionBarInt.style.width = (Number(puntuacionDificil) / 3) * 100 + '%'
+        if (Number(puntuacionDificil) > 0) {
+            puntiacionBarInt.textContent = puntuacionDificil + " / 3"
+        }
         pregunta.appendChild(span)
         console.log(pregunta_inicial)
         localStorage.setItem('question', Number(pregunta_inicial) + 1)
@@ -163,6 +178,7 @@
             for (let i = 0; i < respuestas.length; i++) {
                 const resp = respuestas[i];
                 console.log(resp);
+
                 if (resp.dataset.posicion == posicion + "" || resp.dataset.correcto == "true    ") {
                     if (resp.dataset.correcto != "false") {
                         resp.className = "respuesta shadow-sm correct"
@@ -176,24 +192,76 @@
                     } else {
                         resp.className = "respuesta shadow-sm opaco"
                     }
-
                 }
-
+                resp.setAttribute('onClick', '')
             }
             if (correcto) {
                 respuestaCorrect = true
                 desbloquearPreguntas()
-                    //alert('marcaste la correcta')
                 meta()
-                setTimeout(() => {
-                    location.reload()
-                }, 5000)
+                ValidarNivelOrAcabo()
             } else {
                 desbloquearPreguntas()
-                    //alert('marcaste la incorrecta')
+                ValidarNivelOrAcabo()
+            }
+        }
+
+        function ValidarNivelOrAcabo() {
+            const niveles = JSON.parse(localStorage.getItem('preguntas'))
+            console.log(niveles)
+
+            if (pregunta_inicial == 7) {
+                for (let i = 0; i < niveles.length; i++) {
+                    const nivel = niveles[i]
+                    if (nivel.nivel == 1) {
+                        console.log('nivel 1')
+                        if (niveles[i + 1].look) {
+                            localStorage.setItem('nivelActual', 2)
+                            setTimeout(() => {
+                                location.reload()
+                            }, 2000)
+                        } else {
+                            //aqui johan
+                            setTimeout(() => {
+                                location.href = "/mapa.html";
+                            }, 3000)
+                        }
+
+                        break;
+                    } else {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 2000)
+                    }
+                }
+
+            } else if (pregunta_inicial == 14) {
+                for (let i = 0; i < niveles.length; i++) {
+                    const nivel = niveles[i]
+                    if (nivel.nivel == 2) {
+
+                        if (niveles[i + 1].look) {
+                            localStorage.setItem('nivelActual', 3)
+                            setTimeout(() => {
+                                location.reload()
+                            }, 2000)
+                        } else {
+                            //aqui johan
+                            setTimeout(() => {
+                                location.href = "/mapa.html";
+                            }, 3000)
+                        }
+
+                        break;
+                    }
+
+                }
+            } else if (pregunta_inicial == 21) {
+                location.href = "/mapa.html";
+            } else {
                 setTimeout(() => {
                     location.reload()
-                }, 5000)
+                }, 2000)
             }
         }
 
@@ -207,22 +275,85 @@
                     clearInterval(id);
                     alert("se acabo eltiempo")
                 } else {
-                    width = width - (100 / 2000);
+                    //width = width - (100 / 2000);
                     elem.style.width = width + '%';
                 }
             }
         }
 
         function meta() {
-            if (Number(puntiacion) + 1 <= 3) {
-                localStorage.setItem('puntuacion', (Number(puntiacion) + 1) + '')
-                puntiacionBar.style.width = ((Number(puntiacion) + 1) / 3) * 100 + '%'
-                puntiacionBar.textContent = (Number(puntiacion) + 1) + " / 3"
-                console.log(puntiacion)
-                if (Number(puntiacion) + 1 == 3) {
-                    alert('Felicidades, Desbloqueaste el siguiente nivel')
+            const niveles = JSON.parse(localStorage.getItem('preguntas'))
+            console.log(nivelActual)
+            if (Number(puntuacionInter) + 1 <= 3 && nivelActual == 1) {
+
+                for (let i = 0; i < niveles.length; i++) {
+                    const nivel = niveles[i];
+                    for (let j = 0; j < nivel.preguntas.length; j++) {
+                        const pregunta = nivel.preguntas[j];
+
+                        if (pregunta.nro == pregunta_inicial) {
+                            console.log(pregunta)
+                            if (pregunta.good != question.good) {
+                                localStorage.setItem('puntuacionInter', (Number(puntuacionInter) + 1) + '')
+                                puntiacionBar.style.width = ((Number(puntuacionInter) + 1) / 3) * 100 + '%'
+                                puntiacionBar.textContent = (Number(puntuacionInter) + 1) + " / 3"
+                                console.log(puntuacionInter)
+                                if (Number(puntuacionInter) + 1 == 3) {
+
+                                    const niveles = JSON.parse(localStorage.getItem('preguntas'))
+                                    console.log(niveles)
+                                    for (let i = 0; i < niveles.length; i++) {
+                                        const nivel = niveles[i]
+                                        console.log("asd")
+
+                                        if (nivel.nivel == nivelActual) {
+                                            alert('Felicidades, Desbloqueaste el siguiente nivel')
+                                            niveles[i + 1].look = true
+                                        }
+                                    }
+                                    localStorage.setItem('preguntas', JSON.stringify(niveles))
+                                }
+                            }
+                        }
+                    }
                 }
+
             }
+            if (Number(puntuacionDificil) + 1 <= 3 && nivelActual == 2) {
+
+                for (let i = 0; i < niveles.length; i++) {
+                    const nivel = niveles[i];
+                    for (let j = 0; j < nivel.preguntas.length; j++) {
+                        const pregunta = nivel.preguntas[j];
+                        if (pregunta.nro == pregunta_inicial) {
+                            if (pregunta.good != question.good) {
+                                localStorage.setItem('puntuacionDificil', (Number(puntuacionDificil) + 1) + '')
+                                puntiacionBarInt.style.width = ((Number(puntuacionDificil) + 1) / 3) * 100 + '%'
+                                puntiacionBarInt.textContent = (Number(puntuacionDificil) + 1) + " / 3"
+                                console.log(puntuacionDificil)
+                                if (Number(puntuacionDificil) + 1 == 3) {
+
+                                    const niveles = JSON.parse(localStorage.getItem('preguntas'))
+                                    console.log(niveles)
+                                    for (let i = 0; i < niveles.length; i++) {
+                                        const nivel = niveles[i]
+                                        console.log("asd")
+
+                                        if (nivel.nivel == nivelActual) {
+                                            alert('Felicidades, Desbloqueaste el siguiente nivel')
+                                            niveles[i + 1].look = true
+                                        }
+                                    }
+                                    localStorage.setItem('preguntas', JSON.stringify(niveles))
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
         }
         move();
     </script>

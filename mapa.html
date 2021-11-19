@@ -28,7 +28,7 @@
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
-                                            <div class="puntuacion">20</div>
+                                            <div class="puntuacionInter">20</div>
                                         </div>
                                     </div>
                                     <div id="niveles-1">
@@ -87,7 +87,7 @@
         const nivel_3 = document.querySelector("#niveles-3");
         const nivelesClass = document.getElementsByClassName("nivelClass")
         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
-        const puntos = localStorage.getItem('puntuacion');
+        const puntos = localStorage.getItem('puntuacionInter');
         const charter = document.querySelector("#charter")
         const chart = localStorage.getItem('char')
         console.log(chart)
@@ -109,7 +109,8 @@
                         if (element.unlook) {
                             i.className = "fa fa-unlock icono"
                             div.style.cursor = "pointer";
-                            i.setAttribute("onClick", "questionByNumber(" + (element.nro) + ")")
+                            console.log(preguntas[index].nivel)
+                            i.setAttribute("onClick", "questionByNumber(" + (element.nro) + "," + preguntas[index].nivel + ");")
                         } else {
                             i.className = "fa fa-lock icono"
                             div.style.cursor = "not-allowed";
@@ -148,9 +149,10 @@
             }
         }
 
-        function questionByNumber(numero) {
+        function questionByNumber(numero, nivel) {
             localStorage.setItem('question', numero)
             location.href = "/jugando.html";
+            localStorage.setItem('nivelActual', nivel)
         }
 
         function clear() {

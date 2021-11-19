@@ -280,7 +280,8 @@ function inicializar_preguntas() {
 }
 
 function iniciarPuntaje() {
-    localStorage.setItem('puntuacion', '0')
+    localStorage.setItem('puntuacionInter', '0')
+    localStorage.setItem('puntuacionDificil', '0')
 }
 
 function getPregunta(preguntaEspecifica) {
