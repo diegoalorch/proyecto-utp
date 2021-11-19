@@ -39,7 +39,12 @@
                             <div class="carousel-item">
                                 <div class="d-grid gap-2 nivelClass " style="background-size: contain; background-repeat: no-repeat; background-image: url(./img/mapa/intermedio.jpg); height: 550px;">
                                     <div class="headermap">
-                                        <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 2</h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
+                                        <div class="score">
+                                            <div class="score_title">Puntuación</div>
+                                            <div class="puntuacionInter">20</div>
+                                        </div>
                                     </div>
                                     <div id="niveles-2">
 
@@ -49,7 +54,12 @@
                             <div class="carousel-item">
                                 <div class="d-grid gap-2 nivelClass" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/dificil.jpg); height: 550px;">
                                     <div class="headermap">
-                                        <h1 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold; font-size: 2cm; ">Nivel 1</h1>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 3</h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
+                                        <div class="score">
+                                            <div class="score_title">Puntuación</div>
+                                            <div class="puntuacionInter">20</div>
+                                        </div>
                                     </div>
                                     <div id="niveles-3">
 
@@ -79,7 +89,6 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
     <script src="/js/data.js"></script>
     <script>
@@ -106,7 +115,6 @@
                         const element = preguntas[index].preguntas[preg];
                         const div = document.createElement('div');
                         const i = document.createElement('i');
-
                         if (element.unlook) {
                             i.className = "fa fa-unlock icono"
                             div.style.cursor = "pointer";
@@ -118,11 +126,14 @@
 
                         }
                         i.ariaHidden = "true"
-                        div.className = "prueba" + (element.nro)
+                        div.className = "unchained prueba" + (element.nro)
                         if (element.good) {
-                            div.style.background = "green"
+                            // div.style.background = "green"
+                            div.style.background = "url(/img/background_icon/b3.svg)"
+                            div.style.backgroundSize = "cover"
                         } else {
-                            div.style.background = "red"
+                            div.style.background = "url(/img/background_icon/b2.svg)"
+                            div.style.backgroundSize = "cover"
                         }
 
 
