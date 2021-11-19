@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <div class="main" >
-        <div id="contenedor" >
+    <div class="main">
+        <div id="contenedor">
             <div id="contenedorjuego" styles="">
                 <div class="box2">
                     <div class="w3-progress-container" style="height: 5px;">
@@ -90,8 +90,8 @@
                     </div>
                 </div>
 
-                <div class="body">
-                    <div class="box1 shadow p-3 m-3" id="pregunta" style="">
+                <div class="body window">
+                    <div class="box1 shadow p-3 m-3" id="pregunta">
                         <h2>Pregunta:</h2>
                     </div>
                     <div class="box3">
@@ -114,7 +114,7 @@
         /*name and character open*/
         let character = localStorage.getItem('char').split(',');
         const name = document.querySelector('#name1');
-        name.innerHTML = (character[0]); 
+        name.innerHTML = (character[0]);
         const imagen1 = document.querySelector('#id_character');
         switch (character[1]) {
             case '1':
@@ -137,6 +137,11 @@
         const puntiacionBarInt = document.querySelector('#puntiacionBarInter')
         const question = getPregunta(pregunta_inicial);
         const span = document.createElement('span')
+        const imagen = document.createElement('img')
+        if (question.imagen.length > 0) {
+            imagen.setAttribute('src', question.imagen)
+            imagen.setAttribute('width', '250px')
+        }
         const nivelActual = localStorage.getItem("nivelActual")
         var respuestaCorrect = false;
         span.textContent = question.pregunta
@@ -149,6 +154,7 @@
             puntiacionBarInt.textContent = puntuacionDificil + " / 3"
         }
         pregunta.appendChild(span)
+        pregunta.appendChild(imagen)
         console.log(pregunta_inicial)
         localStorage.setItem('question', Number(pregunta_inicial) + 1)
         for (let i = 0; i < question.respuesta.length; i++) {
@@ -233,11 +239,11 @@
                             }, 2000)
                         } else {
                             Swal.fire({
-                            icon: 'warning',
-                            title: 'Insuficientes puntos',
-                            text: 'Nivel 2 bloqueado',
-                            showConfirmButton: false,
-                            timer: 3000
+                                icon: 'warning',
+                                title: 'Insuficientes puntos',
+                                text: 'Nivel 2 bloqueado',
+                                showConfirmButton: false,
+                                timer: 3000
                             })
                             setTimeout(() => {
                                 location.href = "/mapa.html";
@@ -299,16 +305,16 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'El tiempo',
-                        imageUrl:'https://c.tenor.com/F2DmBuHGBW8AAAAC/hombre-fin.gif',
+                        imageUrl: 'https://c.tenor.com/F2DmBuHGBW8AAAAC/hombre-fin.gif',
                         showConfirmButton: false,
-                        timer: 1500,                        
+                        timer: 1500,
                     })
                     setTimeout(() => {
                         location.reload()
                     }, 1500)
-                    
+
                 } else {
-                    width = width - (100 / 2000);
+                    // width = width - (100 / 2000);
                     elem.style.width = width + '%';
                 }
             }
@@ -341,14 +347,14 @@
 
                                         if (nivel.nivel == nivelActual) {
                                             Swal.fire({
-                                                title: 'Felicidades!',
-                                                text: 'Desbloqueaste el siguiente nivel.',
-                                                imageUrl: 'https://c.tenor.com/lrB55PZ6JYoAAAAC/spelling-bee-win.gif',
-                                                imageWidth: 400,
-                                                imageHeight: 200,
-                                                imageAlt: 'Custom image',
-                                            })
-                                            // alert('Felicidades, Desbloqueaste el siguiente nivel')
+                                                    title: 'Felicidades!',
+                                                    text: 'Desbloqueaste el siguiente nivel.',
+                                                    imageUrl: 'https://c.tenor.com/lrB55PZ6JYoAAAAC/spelling-bee-win.gif',
+                                                    imageWidth: 400,
+                                                    imageHeight: 200,
+                                                    imageAlt: 'Custom image',
+                                                })
+                                                // alert('Felicidades, Desbloqueaste el siguiente nivel')
                                             niveles[i + 1].look = true
                                         }
                                     }
