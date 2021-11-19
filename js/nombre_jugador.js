@@ -3,6 +3,25 @@ var character;
 
 function selectCharacter(char){
     character = char;
+    if (char == 1) {
+        Swal.fire({
+            icon: 'success',
+            imageUrl:'img/character/character_1.png',
+            imageHeight: 200,
+            title: 'Personaje Seleccionado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    } else {
+        Swal.fire({
+            icon: 'success',
+            imageUrl:'img/character/character_2.png',
+            imageHeight: 200,
+            title: 'Personaje Seleccionado',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
 }
 
 function get_send_data(){
@@ -15,10 +34,15 @@ function get_send_data(){
         Swal.fire({
             icon: 'success',
             title: 'Personaje registrado satisfactoriamente!',
-            showConfirmButton: false,
-            timer: 3000
+            showConfirmButton: true,
+            showCancelButton:true,
+            confirmButtonText:'Continuar',
+        }).then((result)=>{
+            if (result.isConfirmed){
+                location.href='./mapa.html';
+            }
         })
-        location.href='./mapa.html';
+        
     }else{
         Swal.fire({
             icon: 'error',
