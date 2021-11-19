@@ -25,10 +25,10 @@
 
                                     <div class="headermap">
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 1</h2>
-                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" class="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
-                                            <div id="scoreGeneral" class="puntuacionInter">20</div>
+                                            <div class="scoreGeneral puntuacionInter">20</div>
                                         </div>
                                     </div>
                                     <div id="niveles-1">
@@ -40,10 +40,10 @@
                                 <div class="d-grid gap-2 nivelClass " style="background-size: contain; background-repeat: no-repeat; background-image: url(./img/mapa/intermedio.jpg); height: 550px;">
                                     <div class="headermap">
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 2</h2>
-                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" class="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
-                                            <div class="puntuacionInter">20</div>
+                                            <div class="scoreGeneral puntuacionInter">20</div>
                                         </div>
                                     </div>
                                     <div id="niveles-2">
@@ -55,10 +55,10 @@
                                 <div class="d-grid gap-2 nivelClass" style="background-size: contain; background-repeat: no-repeat; background-image: url(../img/mapa/dificil.jpg); height: 550px;">
                                     <div class="headermap">
                                         <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;">Nivel 3</h2>
-                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" id="charter"></h2>
+                                        <h2 style=" text-align: center; color: rgb(117, 0, 0); margin-top: 10px; font-weight: bold;" class="charter"></h2>
                                         <div class="score">
                                             <div class="score_title">Puntuación</div>
-                                            <div class="puntuacionInter">20</div>
+                                            <div class="scoreGeneral puntuacionInter">20</div>
                                         </div>
                                     </div>
                                     <div id="niveles-3">
@@ -95,19 +95,25 @@
         const nivel_1 = document.querySelector("#niveles-1");
         const nivel_2 = document.querySelector("#niveles-2");
         const nivel_3 = document.querySelector("#niveles-3");
-        const scoreGeneral = document.querySelector("#scoreGeneral")
+        const scoreGeneral = document.getElementsByClassName("scoreGeneral")
         const score = localStorage.getItem('score')
         const nivelesClass = document.getElementsByClassName("nivelClass")
         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
         const puntos = localStorage.getItem('puntuacionInter');
-        const charter = document.querySelector("#charter")
+        const charter = document.getElementsByClassName("charter")
         const chart = localStorage.getItem('char')
         console.log(chart)
-        scoreGeneral.innerHTML = score;
+        for (let i = 0; i < scoreGeneral.length; i++) {
+            const scoregerelasechon = scoreGeneral[i];
+            scoregerelasechon.innerHTML = score;
+        }
 
         function listar_pregunta(nivel, preguntas) {
             const personaje = chart.split(',')
-            charter.innerHTML = personaje[0]
+            for (let k = 0; k < charter.length; k++) {
+                const personajeC = charter[k];
+                personajeC.innerHTML = personaje[0]
+            }
             for (let index = 0; index < (preguntas).length; index++) {
                 if (preguntas[index].nivel == nivel) {
                     if (!preguntas[index].look) {
