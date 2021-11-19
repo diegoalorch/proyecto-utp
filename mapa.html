@@ -79,6 +79,8 @@
             </div>
         </div>
     </div>
+    <button onclick="question_final()">Final Nivel</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
     <script src="/js/data.js"></script>
     <script>
@@ -93,7 +95,7 @@
         console.log(chart)
 
         function listar_pregunta(nivel, preguntas) {
-            const personaje = chart.split(',')
+            const personaje = chart.split(',')            
             charter.innerHTML = personaje[0]
             for (let index = 0; index < (preguntas).length; index++) {
                 if (preguntas[index].nivel == nivel) {
@@ -200,6 +202,11 @@
             }
             listar_pregunta(nivel, preguntas)
             console.log(nivel)
+        }
+
+        function question_final(){
+            localStorage.setItem('question', 21)
+            location.href = "/jugando.html";
         }
     </script>
 </body>
