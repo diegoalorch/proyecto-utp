@@ -282,6 +282,7 @@ function inicializar_preguntas() {
 function iniciarPuntaje() {
     localStorage.setItem('puntuacionInter', '0')
     localStorage.setItem('puntuacionDificil', '0')
+    localStorage.setItem('score', '0')
 }
 
 function getPregunta(preguntaEspecifica) {
